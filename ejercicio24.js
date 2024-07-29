@@ -13,3 +13,38 @@
 // │ Ingreso     │ 15        │ 40             │ 55             │
 // │ Egreso      │ 60        │ 55             │ NO ALCANZA     │
 // └─────────────┴───────────┴────────────────┴────────────────┘
+
+const prompt = require('prompt-sync')({ siging: true })
+let stockInicial = 100
+let stockFinal = 0
+let cantidad = 0
+let Egreso =0
+let Ingreso =0
+
+let valor= 1
+    do {
+        movimiento= prompt('Ingrese si es; Ingreso o Egreso: ')
+        cantidad = parseInt(prompt('Ingrese la cantidad de cajas a mover: '))
+        if(movimiento=='Egreso'){
+            if(cantidad>stockInicial){
+                console.log(`EL STOCK NO ALCANZA, SALEN: ${stockFinal} Y EL GALPON QUEDA VACIO!`);
+                stockInicial=0
+                Egreso+=cantidad
+                stockFinal=0
+                            }else{
+                stockFinal= stockInicial - cantidad
+                stockInicial-=cantidad
+                Egreso+=cantidad
+            }
+
+            
+        }else if(movimiento=='Ingreso'){
+            stockFinal= stockInicial + cantidad
+            stockInicial+=cantidad
+            Ingreso+=cantidad
+        }
+        console.log(`La cantidad de cajas disponibles en el galpon es de: ${stockFinal}`);
+        console.log(`La cantidad de cajas Ingresadas durante la jornada fue de: ${Ingreso}`);
+        console.log(`La cantidad de cajas Egresadas durante la jornada fue de: ${Egreso}`);
+        valor++
+} while (valor<=5);

@@ -9,7 +9,28 @@
 // ├──────────────┼────────────┼─────────────────────────┼─────────────────────────┤
 // │ Inicial      │ 10         │ -                       │ 10                      │
 // │ 1            │ 3          │ 5                       │ 8                       │
-// │ 2            │ 6          │ 7                       │ 7                       │
-// │ 3            │ 9          │ 8                       │ 8                       │
-// │ Final        │ -          │ -                       │ 8                       │
+// │ 2            │ 6          │ 4                       │ 10                       │
+// │ 3            │ 9          │ 5                       │ 14                       │
+// │ Final        │ -          │ -                       │ 14                       │
 // └──────────────┴────────────┴─────────────────────────┴─────────────────────────┘
+
+
+    let Suben = 0
+    let Bajan = 0
+    let totalPersonas = 0
+    let n = parseInt(prompt(`Ingrese cant. de personas que suben: `))
+    let x = parseInt(prompt(`Ingrese cant. de paradas intermedias : `))
+    totalPersonas+=n
+    console.log(`Suben ${n} personas`); //x unica vez
+
+    
+    for (i =0; i<x; i++){
+        Suben+= 3
+        Bajan = totalPersonas/2 
+        totalPersonas= Bajan + Suben
+    
+        console.log(`Suben ${Suben} personas en la parada Nº ${i+1}`);
+        console.log(`Bajan ${Bajan} personas en la parada Nº ${i+1}`);
+        console.log(`En el autobus hay unas ${totalPersonas} personas`);
+        }
+        console.log(`En el final del trayecto quedan ${totalPersonas} en el Autobus`);
